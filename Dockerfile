@@ -19,7 +19,7 @@ RUN chmod +x mvnw
 RUN ./mvnw clean package -DskipTests
 
 # Espone la porta che Spring Boot userà (Render passa PORT)
-ENV PORT=8080
+
 EXPOSE 8080
 
 # Comando per avviare l'applicazione
