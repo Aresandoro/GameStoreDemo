@@ -23,4 +23,4 @@ ENV PORT=8080
 EXPOSE 8080
 
 # Comando per avviare l'applicazione
-CMD ["java", "-jar", "target/GameStoreDemo-0.0.1-SNAPSHOT.jar"]
+CMD ["sh", "-c", "java -jar out/*.jar"]
