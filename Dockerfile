@@ -23,4 +23,4 @@ ENV PORT=8080
 EXPOSE 8080
 
 # Comando per avviare l'applicazione
-CMD ["sh", "-c", "java -jar out/*.jar"]
+CMD ["sh", "-c", "java -jar out/artifacts/demo_jar/demo.jar"]
