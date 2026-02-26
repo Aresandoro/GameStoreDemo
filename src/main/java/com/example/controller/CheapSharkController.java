@@ -3,10 +3,12 @@ package com.example.controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 @RestController
 public class CheapSharkController {
 
+    @CrossOrigin(origins = {"http://127.0.0.1:5500", "http://localhost:5500"})
     @GetMapping("/api/deals")
     public String getDeals() {
 
