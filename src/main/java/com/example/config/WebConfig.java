@@ -15,7 +15,7 @@ public class WebConfig {
                 registry.addMapping("/api/**") // tutti gli endpoint
                         .allowedOrigins("*") // o metti l'URL del frontend del tuo amico
                         .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
-                        .allowCredentials(true);
+                        .allowedHeaders("*");
             }
         };
     }
