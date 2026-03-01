@@ -12,7 +12,7 @@ public class WebConfig {
         return new WebMvcConfigurer() {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
-                registry.addMapping("/**") // tutti gli endpoint
+                registry.addMapping("/api/**") // tutti gli endpoint
                         .allowedOrigins("*") // o metti l'URL del frontend del tuo amico
                         .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                         .allowCredentials(true);
