@@ -1,0 +1,16 @@
+package com.example.dto;
+
+public class AuthResponse {
+
+    private String email;
+    private String message;
+
+    public AuthResponse(String email, String message) {
+
+        this.email = email;
+        this.message = message;
+    }
+
+    public String getEmail() { return email; }
+    public String getMessage() { return message; }
+}
