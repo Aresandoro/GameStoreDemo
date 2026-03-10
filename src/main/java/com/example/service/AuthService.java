@@ -18,19 +18,15 @@ public class AuthService {
     }
 
     //register
-    public User register(String email,String username, String password) {
+    public User register(String email, String password) {
 
         if (userRepository.findByEmail(email).isPresent()) {
             throw new RuntimeException("Email già registrata");
         }
 
-        if (userRepository.findByUsername(username).isPresent()) {
-            throw new RuntimeException("Username già in uso");
 
-
-        }
         String encodedPassword = passwordEncoder.encode(password);
-        User newUser = new User(email, username, encodedPassword);
+        User newUser = new User(email, encodedPassword);
         return userRepository.save(newUser);
     }
 
