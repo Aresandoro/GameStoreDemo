@@ -1,4 +1,5 @@
 package com.example.controller;
+import com.example.dto.UserResponseDTO;
 import com.example.repository.UserRepository;
 import com.example.dto.AuthRequest;
 import com.example.dto.AuthResponse;
@@ -9,15 +10,19 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/auth")
 public class AuthController {
     private final AuthService authService;
+    private final UserRepository userRepository;
+    public AuthController(AuthService authService, UserRepository userRepository) {
 
-    public AuthController(AuthService authService) {
         this.authService = authService;
+        this.userRepository=userRepository;
     }
+
 
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody AuthRequest request) {
@@ -61,6 +66,14 @@ public class AuthController {
                     .status(HttpStatus.BAD_REQUEST)
                     .body(e.getMessage());
         }
+    }
+
+    @GetMapping("/users")
+    public List<UserResponseDTO> getUsers() {
+        return userRepository.findAll()
+                .stream()
+                .map(u -> new UserResponseDTO(u.getId(),u.getEmail(), u.getRole()))
+                .collect(Collectors.toList());
     }
 
 }
